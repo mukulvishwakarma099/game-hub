@@ -18,7 +18,7 @@ const GameGrid = () => {
           lg: 3,
           xl: 5,
         }}
-        gap={10}
+        gap={3}
         padding="10px"
       >
         {loading &&
