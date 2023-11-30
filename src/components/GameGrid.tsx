@@ -4,6 +4,7 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import { Genre } from "../hooks/useGenres";
+import PlatformSelector from "./PlatformSelector";
 
 interface GameGridProps {
   selctedGenre: Genre | null;
@@ -32,11 +33,13 @@ const GameGrid = ({ selctedGenre }: GameGridProps) => {
               <GameCardSkeleton key={skeleton} />
             </GameCardContainer>
           ))}
-        {data?.map((game) => (
-          <GameCardContainer key={game.id}>
-            <GameCard key={game.id} game={game} />
-          </GameCardContainer>
-        ))}
+        {!loading
+          ? data?.map((game) => (
+              <GameCardContainer key={game.id}>
+                <GameCard key={game.id} game={game} />
+              </GameCardContainer>
+            ))
+          : "Loading..."}
       </SimpleGrid>
     </>
   );
