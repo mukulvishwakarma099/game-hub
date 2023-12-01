@@ -11,7 +11,11 @@ interface GameCardProps {
 const GameCard = ({ game }: GameCardProps) => {
   return (
     <Card borderRadius={10} overflow={"hidden"}>
-      <Image src={getCroppedImageUrl(game?.background_image)} />
+      <Image
+        src={getCroppedImageUrl(game?.background_image)}
+        transition="ease-in-out .2s"
+        _hover={{ transform: "scale(1.1)" }}
+      />
       <CardBody>
         <Heading fontSize="2xl">{game?.name}</Heading>
         <HStack justifyContent="space-between">
