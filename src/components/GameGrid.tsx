@@ -21,9 +21,9 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
           sm: 1,
           md: 2,
           lg: 3,
-          xl: 5,
+          xl: 4,
         }}
-        gap={3}
+        gap={6}
         padding="10px"
       >
         {loading &&
@@ -38,7 +38,7 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
                 <GameCard key={game.id} game={game} />
               </GameCardContainer>
             ))
-          : "Loading..."}
+          : ""}
       </SimpleGrid>
     </>
   );
