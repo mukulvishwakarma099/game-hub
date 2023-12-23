@@ -10,10 +10,10 @@ interface GameGridProps {
 }
 
 const GameGrid = ({ gameQuery }: GameGridProps) => {
-  const { error, data, loading } = useGames(gameQuery);
+  const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
-  if (error) return <Text>{error}</Text>;
+  if (error) return <Text>{error.message}</Text>;
 
   return (
     <SimpleGrid
@@ -26,14 +26,14 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
       gap={6}
       padding="10px"
     >
-      {loading &&
+      {isLoading &&
         skeletons.map((skeleton) => (
           <GameCardContainer key={skeleton}>
             <GameCardSkeleton key={skeleton} />
           </GameCardContainer>
         ))}
-      {!loading
-        ? data?.map((game) => (
+      {!isLoading
+        ? data?.results.map((game) => (
             <GameCardContainer key={game.id}>
               <GameCard key={game.id} game={game} />
             </GameCardContainer>
