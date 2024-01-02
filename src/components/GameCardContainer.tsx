@@ -7,7 +7,14 @@ interface GameCardContainerProps {
 
 const GameCardContainer = ({ children }: GameCardContainerProps) => {
   return (
-    <Box borderRadius={10} overflow={"hidden"}>
+    <Box
+      borderRadius={10}
+      overflow={"hidden"}
+      transition="all .3s"
+      _hover={{
+        transform: "scale(1.03)",
+      }}
+    >
       {children}
     </Box>
   );
