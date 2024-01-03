@@ -32,6 +32,11 @@ class APIClient<T> {
     const res = await axiosInstance.get<T>(`${this.endpoint}/${id}`);
     return res.data;
   };
+
+  getTrialer = async (id: number) => {
+    const res = await axiosInstance.get<T>(`${this.endpoint}/${id}/movies`);
+    return res.data;
+  };
 }
 
 export default APIClient;
