@@ -24,6 +24,7 @@ const GameDetailPage = () => {
         md: 2,
       }}
       spacing={5}
+      padding={5}
     >
       <GridItem>
         <Heading>{game?.name}</Heading>
